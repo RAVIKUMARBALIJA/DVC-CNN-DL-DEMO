@@ -1,5 +1,5 @@
-# dvc-project-template
-DVC project template
+# DVC-CNN-DL-DEMO
+DVC-CNN-DL-DEMO
 
 ## STEPS -
 
