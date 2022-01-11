@@ -1,0 +1,59 @@
+[2022-01-11 11:41:33,267: INFO: stage_01_getdata]: 
+********************
+[2022-01-11 11:41:33,268: INFO: stage_01_getdata]: >>>>> stage get_data started <<<<<
+[2022-01-11 11:41:33,271: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-01-11 11:41:33,288: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-01-11 11:41:33,288: ERROR: stage_01_getdata]: list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "src/stage_01_getdata.py", line 59, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_01_getdata.py", line 27, in main
+    train_source = source_path["train"]
+TypeError: list indices must be integers or slices, not str
+[2022-01-11 11:43:54,094: INFO: stage_01_getdata]: 
+********************
+[2022-01-11 11:43:54,094: INFO: stage_01_getdata]: >>>>> stage get_data started <<<<<
+[2022-01-11 11:43:54,097: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-01-11 11:43:54,098: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-01-11 11:43:54,098: ERROR: stage_01_getdata]: string indices must be integers
+Traceback (most recent call last):
+  File "src/stage_01_getdata.py", line 59, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_01_getdata.py", line 34, in main
+    train_cat = train_dest_path["train_cat"]
+TypeError: string indices must be integers
+[2022-01-11 11:44:36,635: INFO: stage_01_getdata]: 
+********************
+[2022-01-11 11:44:36,635: INFO: stage_01_getdata]: >>>>> stage get_data started <<<<<
+[2022-01-11 11:44:36,638: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-01-11 11:44:36,639: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-01-11 11:44:36,639: INFO: common]: existing directorydata has been cleared
+[2022-01-11 11:44:36,639: ERROR: stage_01_getdata]: create_directories() got an unexpected keyword argument 'dirs'
+Traceback (most recent call last):
+  File "src/stage_01_getdata.py", line 59, in <module>
+    main(config_path=parsed_args.config, params_path=parsed_args.params)
+  File "src/stage_01_getdata.py", line 37, in main
+    create_directories(dirs=[destination_data,train_dest_path,train_dog,train_cat])
+TypeError: create_directories() got an unexpected keyword argument 'dirs'
+[2022-01-11 11:44:58,552: INFO: stage_01_getdata]: 
+********************
+[2022-01-11 11:44:58,552: INFO: stage_01_getdata]: >>>>> stage get_data started <<<<<
+[2022-01-11 11:44:58,555: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-01-11 11:44:58,556: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-01-11 11:44:58,556: INFO: common]: existing directorydata has been cleared
+[2022-01-11 11:44:58,556: INFO: common]: created directory at: data
+[2022-01-11 11:44:58,556: INFO: common]: created directory at: data/train
+[2022-01-11 11:44:58,556: INFO: common]: created directory at: data/train/dog
+[2022-01-11 11:44:58,556: INFO: common]: created directory at: data/tran/cat
+[2022-01-11 11:46:15,661: INFO: stage_01_getdata]: 
+********************
+[2022-01-11 11:46:15,662: INFO: stage_01_getdata]: >>>>> stage get_data started <<<<<
+[2022-01-11 11:46:15,665: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-01-11 11:46:15,665: INFO: common]: yaml file: params.yaml loaded successfully
+[2022-01-11 11:46:15,744: INFO: common]: existing directorydata has been cleared
+[2022-01-11 11:46:15,744: INFO: common]: created directory at: data
+[2022-01-11 11:46:15,744: INFO: common]: created directory at: data/train
+[2022-01-11 11:46:15,744: INFO: common]: created directory at: data/train/dog
+[2022-01-11 11:46:15,745: INFO: common]: created directory at: data/train/cat
+[2022-01-11 11:49:45,767: INFO: stage_01_getdata]: >>>>> stage get_data completed!<<<<<
+

@@ -4,6 +4,8 @@ import logging
 import time
 import pandas as pd
 import json
+import shutil
+
 
 def read_yaml(path_to_yaml: str) -> dict:
     with open(path_to_yaml) as yaml_file:
@@ -20,5 +22,14 @@ def create_directories(path_to_directories: list) -> None:
 def save_json(path: str, data: dict) -> None:
     with open(path, "w") as f:
         json.dump(data, f, indent=4)
+        logging.info(f"json file saved at: {path}")
 
-    logging.info(f"json file saved at: {path}")
+def clear_existing_dirs(path : str):
+    if os.path.exists(path):
+        shutil.rmtree(path)
+    logging.info(f"existing directory{path} has been cleared")
+
+def get_timestamp(filename:str):
+    timestr = time.asctime().replace(" ","_").replace(":","")
+    return filename + "_" + timestr
+
