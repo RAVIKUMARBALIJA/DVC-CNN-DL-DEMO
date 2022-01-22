@@ -28,6 +28,8 @@ def get_base_model(input_shape:list = [224,224],model_path:str = "basemodel.h5")
     base_model.save(model_path)
     logging.info(f"base model has been saved at {model_path}")
 
+    return base_model
+
 def prepare_fullmodel(base_model,learning_rate=0.0005,classes=2,freeze_all=False,freeze_till=None):
 
     if freeze_all:

@@ -18,10 +18,9 @@ logging.basicConfig(
     )
 
 
-def main(config_path, params_path):
+def main(config_path):
     ## read config files
     config = read_yaml(config_path)
-    params = read_yaml(params_path)
     
     source_path = config["source_download_dirs"]
     train_source = source_path["train"]
@@ -42,15 +41,11 @@ def main(config_path, params_path):
             shutil.copy(os.path.join(train_source,file),train_dest_path+"/dog")
         elif "cat" in file.lower():
             shutil.copy(os.path.join(train_source,file),train_dest_path+"/cat")
-        count+=1
-        if count%100==0:
-            print(f"{count} files have been copied..")
 
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
     args.add_argument("--config", "-c", default="configs/config.yaml")
-    args.add_argument("--params", "-p", default="params.yaml")
     parsed_args = args.parse_args()
 
     try:
