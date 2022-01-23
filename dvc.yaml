@@ -1,7 +1,7 @@
 # add stages here 
-# stages:
+stages:
   get_data:
-    cmd: python src/stage_01_getdata.py 
+    cmd: python3 src/stage_01_getdata.py --config=configs/config.yaml
     deps:
     - src/stage_01_getdata.py
     - src/utils/common.py
@@ -11,7 +11,7 @@
     - data/train/cat
   
   prepare_base_model:
-    cmd: pyton src/stage_02_prepare_basemodel.py
+    cmd: python3 src/stage_02_prepare_basemodel.py --config=configs/config.yaml --params=params.yaml
     deps:
     - src/stage_02_prepare_basemodel.py
     - src/utils/common.py
@@ -24,3 +24,36 @@
     outs:
     - artifacts/base_model/base_model.h5
     - artifats/base_model/updated_base_model.h5
+  prepare_callbacks:
+    cmd : python3 src/stage_03_prepare_callback.py --config=configs/config.yaml
+    deps:
+    - src/stage_03_prepare_callback.py
+    - configs/config.yaml
+    - src/utils/common.py
+    - src/utils/callbacks.py
+    outs:
+    - artifacts/callbacks/tensorboard_cb.cb
+    - artifacts/callbacks/checkpoint_cb.cb
+  train_model:
+    cmd: python src/stage_04_train.py --config=configs/config.yaml --params=params.yaml
+    deps:
+    - src/stage_04_train.py
+    - src/utils/common.py
+    - src/utils/model.py
+    - src/utils/callbacks.py
+    - src/utils/data_management.py
+    - configs/config.yaml
+    - artifacts/callbacks/checkpoint_cb.cb
+    - artifacts/callbacks/tensorboard_cb.cb
+    - artifacts/base_model/updated_base_model.h5
+    - data/cat
+    - data/dog
+    params:
+    - IMAGE_SIZE
+    - BATCH_SIZE
+    - AUGMENTATION
+    - EPOCHS
+    outs:
+    - artifacts/model
+    - artifacts/tensorboard_log_dir
+    - artifacts/checkpoints

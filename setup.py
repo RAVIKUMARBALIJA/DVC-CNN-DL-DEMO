@@ -9,7 +9,9 @@ AUTHOR_USER_NAME = "RAVIKUMARBALIJA"
 SRC_REPO = "src"
 LIST_OF_REQUIREMENTS = [
     "dvc==2.7.2",
-    "tqdm==4.62.3"
+    "tqdm==4.62.3",
+    "tensorflow==2.5.0",
+    "joblib==1.1.0"
 ]
 
 
